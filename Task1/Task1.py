@@ -19,12 +19,12 @@ print(new_StudentData)
 print("Step 2: visualize the imported data")
  # plotting the imported data using matplotlib
 
-#studentData.plot(x="Hours", y="Scores", style='x')
+studentData.plot(x="Hours", y="Scores", style='x')
 plt.title("Scores in respect to Hours")
 plt.xlabel("Hours studied by students")
 plt.ylabel("Scores Achieved")
 plt.grid()
-#plt.show()
+plt.show()
 print("\n")
  # determine the correlation between the dependent and independent variables
 
@@ -44,7 +44,7 @@ print(dependent)
 
 x_train, x_test, y_train, y_test= train_test_split(independent,dependent,train_size=None, test_size=0.25, random_state=0) 
 print("\n")
-print ("X_train: ", x_train,type( x_train)) 
+print ("X_train: ", x_train) 
 print("\n")
 print ("y_train: ", y_train)
 print("\n")
@@ -69,10 +69,10 @@ regressionLine= regressor.coef_*independent + regressor.intercept_
   # plotting the training dataset and the regression line
 plt.scatter(x_train,y_train, color='blue')
 plt.plot(independent,regressionLine,color='red')
-
+plt.grid()
   # Plotting testing data then displaying both train and test data
 plt.scatter(x_test,y_test, color='green')
-#plt.show()
+plt.show()
 
 print("Step 6: Data Prediction")
 print("\n")
@@ -87,7 +87,6 @@ table= pd.DataFrame({'Actual': d1, 'Predicted': d2})
 print(table)
   # test the model with your own 
 newHours=9.25
-#hours=hours.reshape(-1,1)
 myPrediction= regressor.predict([[newHours]])
 print("Number of Hours Studied =",newHours, "will result in a Score of", myPrediction[0])
 
